@@ -23,7 +23,9 @@ namespace amazen_server.Repositories
     {
       string sql = @"
         INSERT INTO profiles
-        (name, picture, email, @Id)";
+        (name, picture, email, id)
+         VALUES
+      (@Name, @Picture, @Email, @Id)";
       _db.Execute(sql, userInfo);
       return userInfo;
     }
