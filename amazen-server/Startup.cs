@@ -69,6 +69,10 @@ namespace amazen
       services.AddScoped<IDbConnection>(x => CreateDbConnection());
       services.AddTransient<ProfilesService>();
       services.AddTransient<ProfilesRepository>();
+      services.AddTransient<ProductsService>();
+      services.AddTransient<ProductsRepository>();
+      services.AddTransient<WishListsService>();
+      services.AddTransient<WishListsRepository>();
     }
 
 
