@@ -19,16 +19,16 @@ namespace amazen_server.Repositories
       return _db.QueryFirstOrDefault<Profile>(sql, new { email });
     }
 
-    // public Profile Create(Profile userInfo)
-    // {
-    //   string sql = @"
-    //     INSERT INTO profiles
-    //     (name, picture, email, id)
-    //      VALUES
-    //   (@Name, @Picture, @Email, @Id)";
-    //   _db.Execute(sql, userInfo);
-    //   return userInfo;
-    // }
+    public Profile Create(Profile userInfo)
+    {
+      string sql = @"
+        INSERT INTO profiles
+        (name, picture, email, id)
+         VALUES
+      (@Name, @Picture, @Email, @Id)";
+      _db.Execute(sql, userInfo);
+      return userInfo;
+    }
 
   }
 }
