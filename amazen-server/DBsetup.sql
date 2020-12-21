@@ -17,3 +17,18 @@
 --         REFERENCES profiles(id)
 --         ON DELETE CASCADE
 -- )
+
+-- ALTER TABLE products
+-- ADD Price INT NOT NULL;
+
+-- ALTER TABLE products 
+-- DROP COLUMN Price;
+
+-- ALTER TABLE products
+-- ADD price INT NOT NULL;
+
+-- ALTER TABLE products 
+-- DROP COLUMN price;
+
+-- ALTER TABLE products
+-- ADD price DECIMAL (6, 2) NOT NULL DEFAULT 0;

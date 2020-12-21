@@ -52,5 +52,49 @@ namespace amazen_server.Controllers
         return BadRequest(e.Message);
       }
     }
+
+    [HttpGet("{id}")]
+    public ActionResult<Product> Get(int id)
+    {
+      try
+      {
+        return Ok(_ps.GetById(id));
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
+
+    [HttpDelete("{id}")]
+    public ActionResult<Product> Delete(int id)
+    {
+      try
+      {
+        return Ok(_ps.Delete(id));
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
+
+    [HttpPut("{id}")]
+    [Authorize]
+    public async Task<ActionResult<Product>> Edit([FromBody] Product updated, int id)
+    {
+      try
+      {
+        Profile userInfo = await HttpContext.GetUserInfoAsync<Profile>();
+        updated.CreatorId = userInfo.Id;
+        updated.Creator = userInfo;
+        updated.Id = id;
+        return Ok(_ps.Edit(updated));
+      }
+      catch (Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+    }
   }
 }
