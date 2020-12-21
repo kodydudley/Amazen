@@ -8,6 +8,8 @@ namespace amazen_server.Models
 
     public float Price { get; set; }
     public string Picture { get; set; }
+
+    // public bool IsAvailable { get; set; }
     public string CreatorId { get; set; }
     public Profile Creator { get; set; }
 

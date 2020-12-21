@@ -32,3 +32,9 @@
 
 -- ALTER TABLE products
 -- ADD price DECIMAL (6, 2) NOT NULL DEFAULT 0;
+
+-- ALTER TABLE products
+-- ADD isAvailable TINYINT;
+
+-- ALTER TABLE products
+-- DROP COLUMN isAvailable;

@@ -55,6 +55,8 @@ namespace amazen_server.Services
       updated.Title = updated.Title != null && updated.Title.Length > 2 ? updated.Title : data.Title;
       updated.Price = updated.Price != 0 ? updated.Price : data.Price;
       updated.Picture = updated.Picture != null ? updated.Picture : data.Picture;
+      // updated.IsAvailable = updated.IsAvailable != true ? updated.IsAvailable : data.IsAvailable;
+
       return _repo.Edit(updated);
     }
   }

@@ -1,15 +1,28 @@
 <template>
-  <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-    <img src="https://bcw.blob.core.windows.net/public/img/8600856373152463" alt="CodeWorks Logo">
-    <h1 class="my-5 bg-dark text-light p-3 rounded d-flex align-items-center">
-      <span class="mx-2 text-white">Vue 3 Starter</span>
-    </h1>
+  <div class="home">
   </div>
+  <!-- <div class="col-4"> -->
+  <div class="row">
+    <productComponent v-for="product in products" :product-prop="product" :key="product.id" />
+  </div>
+  <!-- </div> -->
 </template>
 
 <script>
+import { computed, onMounted } from 'vue'
+import { AppState } from '../AppState'
+import { productsService } from '../services/ProductsService'
+
 export default {
-  name: 'Home'
+  name: 'Home',
+  setup() {
+    onMounted(() => {
+      productsService.getPublicProducts()
+    })
+    return {
+      products: computed(() => AppState.products)
+    }
+  }
 }
 </script>
 

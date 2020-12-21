@@ -55,7 +55,7 @@ namespace amazen_server.Repositories
          title = @Title,
          description = @Description,
          picture = @Picture,
-         price = @Price
+         price = @Price,
         WHERE id = @Id;";
       _db.Execute(sql, updated);
       return updated;
