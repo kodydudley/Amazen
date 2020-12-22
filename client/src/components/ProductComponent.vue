@@ -1,12 +1,12 @@
 <template>
   <div class="productComponent col-3 my-3 p-0 justify-content-between">
-    <router-link :to="{name: 'ActiveProduct', params: {productId: productProp.id}}">
-      <div class="col-10 offset-1">
+    <div class="col-10 offset-1">
+      <router-link :to="{name: 'ActiveProduct', params: {productId: productProp.id}}">
         <div class="card border0 box-shadow">
           <img class="fixed-height img" :src="product.picture" alt="">
         </div>
-      </div>
-    </router-link>
+      </router-link>
+    </div>
   </div>
 </template>
 
