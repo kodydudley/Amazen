@@ -1,13 +1,13 @@
 <template>
   <div class="activeProductComponent">
-    <div class="row justify-content-around">
+    <div class="row justify-content-around bg-white margin-bottom">
       <div class="col-7">
         <img class="img-fluid" :src="activeProduct.picture" alt="">
       </div>
       <div class="col-4 border border-info shadow-lg bg-white">
         <!-- <div class="col-10 offset-1"> -->
         <div class="row ml-2">
-          <h1 class="text-center">
+          <h1 class="text-left">
             {{ activeProduct.title }}
           </h1>
         </div>
@@ -20,7 +20,7 @@
         <!-- </div> -->
       </div>
       <div class="col-11">
-        <button class="btn btn-block  btn-success mt-2">
+        <button class="btn btn-block mb-2 btn-success mt-2">
           Add to WishList
         </button>
       </div>
@@ -69,5 +69,9 @@ height: 100%;
   bottom: 10px;
   // align-self: flex-end;
   }
+
+.margin-bottom{
+  height: 78vh;
+}
 
 </style>
