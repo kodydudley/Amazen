@@ -65,8 +65,9 @@ width: 100%;
 height: 100%;
 }
 .bottom{
-  margin-top: 100%;
-  align-self: flex-end;
+  position: absolute;
+  bottom: 10px;
+  // align-self: flex-end;
   }
 
 </style>
