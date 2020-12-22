@@ -1,0 +1,72 @@
+<template>
+  <div class="activeProductComponent">
+    <div class="row justify-content-around">
+      <div class="col-7">
+        <img class="img-fluid" :src="activeProduct.picture" alt="">
+      </div>
+      <div class="col-4 border border-info shadow-lg bg-white">
+        <!-- <div class="col-10 offset-1"> -->
+        <div class="row ml-2">
+          <h1 class="text-center">
+            {{ activeProduct.title }}
+          </h1>
+        </div>
+        <div class="row ml-2">
+          <h6>{{ activeProduct.description }}</h6>
+        </div>
+        <div class="row ml-2 d-flex align-text-bottom bottom">
+          <h3>${{ activeProduct.price }}</h3>
+        </div>
+        <!-- </div> -->
+      </div>
+      <div class="col-11">
+        <button class="btn btn-block  btn-success mt-2">
+          Add to WishList
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { computed, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+import { AppState } from '../AppState'
+import { productsService } from '../services/ProductsService'
+export default {
+  name: 'ActiveProductComponent',
+  props: ['productProp'],
+  setup(props) {
+    const route = useRoute()
+    onMounted(() => {
+      productsService.getActiveProduct(route.params.productId)
+    })
+    return {
+      product: computed(() => props.productProp),
+      activeProduct: computed(() => AppState.activeProduct)
+    }
+  },
+  components: {}
+}
+</script>
+
+<style lang="scss" scoped>
+
+.box-shadow{
+  box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.406);
+}
+
+.border0{
+  border: 0;
+}
+
+.img{
+width: 100%;
+height: 100%;
+}
+.bottom{
+  margin-top: 100%;
+  align-self: flex-end;
+  }
+
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home bg-secondary">
   </div>
   <!-- <div class="col-4"> -->
   <div class="row">

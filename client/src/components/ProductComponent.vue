@@ -1,11 +1,12 @@
 <template>
-  <div class="productComponent col-3">
-    <div class="card p-2 m-2 shadow-lg">
-      <h1>{{ product.title }}</h1>
-      <img class="img-fluid" :src="product.picture" alt="">
-      <p>{{ product.description }}</p>
-      <h6>${{ product.price }}</h6>
-    </div>
+  <div class="productComponent col-3 my-3 p-0 justify-content-between">
+    <router-link :to="{name: 'ActiveProduct', params: {productId: productProp.id}}">
+      <div class="col-10 offset-1">
+        <div class="card border0 box-shadow">
+          <img class="fixed-height img" :src="product.picture" alt="">
+        </div>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -24,5 +25,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.fixed-height{
+  height: 200px;
+  width: 200px;
+}
+
+.box-shadow{
+  box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.406);
+}
+
+.border0{
+  border: 0;
+}
+
+.img{
+width: 100%;
+height: 200px;
+}
 
 </style>

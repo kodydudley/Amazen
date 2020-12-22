@@ -2,18 +2,18 @@
   <header>
     <Navbar />
   </header>
-  <main>
+  <main class="bg-primary">
     <router-view v-slot="{Component}">
       <transition name="route" mode="out-in">
         <component :is="Component" />
       </transition>
     </router-view>
   </main>
-  <footer>
-    <div class="bg-dark text-light text-center p-4">
-      Made with 💖 by CodeWorks
+  <!-- <footer>
+    <div class="bg-dark text-light text-center p-2">
+      amazen
     </div>
-  </footer>
+  </footer> -->
 </template>
 
 <script>
