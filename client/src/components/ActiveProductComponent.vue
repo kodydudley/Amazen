@@ -1,6 +1,6 @@
 <template>
   <div class="activeProductComponent">
-    <div class="row justify-content-around bg-white margin-bottom">
+    <div class="row justify-content-around bg-white">
       <div class="col-7">
         <img class="img-fluid" :src="activeProduct.picture" alt="">
       </div>
@@ -69,9 +69,5 @@ height: 100%;
   bottom: 10px;
   // align-self: flex-end;
   }
-
-.margin-bottom{
-  height: 78vh;
-}
 
 </style>
