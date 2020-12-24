@@ -24,6 +24,14 @@
           Add to WishList
         </button>
       </div>
+      <div class="col-11" v-if="profile.id === activeProduct.creatorId">
+        <button @click="deleteProduct()" class="btn btn-block btn-danger">
+          Delete
+        </button>
+        <button class="btn btn-block btn-warning">
+          Edit
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -43,7 +51,11 @@ export default {
     })
     return {
       product: computed(() => props.productProp),
-      activeProduct: computed(() => AppState.activeProduct)
+      activeProduct: computed(() => AppState.activeProduct),
+      profile: computed(() => AppState.profile),
+      deleteProduct() {
+        productsService.deleteProduct(route.params.productId)
+      }
     }
   },
   components: {}
@@ -61,9 +73,9 @@ export default {
 }
 
 .img{
-width: 100%;
-height: 100%;
+background-size: inherit;
 }
+
 .bottom{
   position: absolute;
   bottom: 10px;

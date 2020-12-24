@@ -14,12 +14,34 @@ class ProductsService {
     }
   }
 
+  async getMyProducts() {
+    try {
+      const res = await api.get('profile/' + AppState.profile.id + '/products')
+      logger.log('productService', AppState.profile.id)
+      AppState.myProducts = res.data
+    } catch (err) {
+      logger.error(err)
+    }
+  }
+
   async getActiveProduct(productId) {
     try {
       const res = await api.get('api/products/' + productId)
       AppState.activeProduct = res.data
     } catch (error) {
       logger.log(error)
+    }
+  }
+
+  async deleteProduct(productId) {
+    try {
+      const res = await api.delete('api/products/' + productId)
+      router.push({ name: 'Home' })
+      logger.log('Yo Yo!')
+      AppState.myProducts = res.data
+      logger.log(res.data)
+    } catch (error) {
+      logger.error(error)
     }
   }
 

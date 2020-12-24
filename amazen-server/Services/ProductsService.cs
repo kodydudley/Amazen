@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using amazen_server.Models;
 using amazen_server.Repositories;
+using System.Linq;
 
 namespace amazen_server.Services
 {
@@ -58,6 +59,11 @@ namespace amazen_server.Services
       // updated.IsAvailable = updated.IsAvailable != true ? updated.IsAvailable : data.IsAvailable;
 
       return _repo.Edit(updated);
+    }
+
+    public IEnumerable<Product> GetProductsByProfile(string profileId, string userId)
+    {
+      return _repo.getProductsByProfile(profileId).ToList().FindAll(product => product.CreatorId == userId);
     }
   }
 }

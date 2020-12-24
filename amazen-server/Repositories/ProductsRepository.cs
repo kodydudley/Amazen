@@ -60,5 +60,17 @@ namespace amazen_server.Repositories
       _db.Execute(sql, updated);
       return updated;
     }
+
+    public IEnumerable<Product> getProductsByProfile(string profileId)
+    {
+      string sql = @"
+        SELECT
+        product.*,
+        profile.*
+        FROM products product
+        JOIN profiles profile ON product.creatorId = profile.id
+        WHERE product.creatorId = @profileId; ";
+      return _db.Query<Product, Profile, Product>(sql, (product, profile) => { product.Creator = profile; return product; }, new { profileId }, splitOn: "id");
+    }
   }
 }
