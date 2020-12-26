@@ -1,7 +1,9 @@
 <template>
-  <div class="wishListsComponent col-3 my-3 p-0 justify-content-between">
+  <div class="wishListsComponent col-12 my-3 p-0 justify-content-between">
     <div class="col-10 offset-1">
-      <h1>{{ wishlist.name }}</h1>
+      <h3 class="text-center bg-info rounded">
+        {{ wishlist.name }}
+      </h3>
     </div>
   </div>
 </template>
@@ -22,22 +24,8 @@ export default {
 
 <style lang="scss" scoped>
 
-.fixed-height{
-  height: 200px;
-  width: 200px;
-}
-
-.box-shadow{
-  box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.406);
-}
-
-.border0{
-  border: 0;
-}
-
-.img{
-width: 100%;
-height: 200px;
+.rounded{
+  border-radius: 30px;
 }
 
 </style>
