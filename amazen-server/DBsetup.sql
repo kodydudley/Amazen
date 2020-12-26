@@ -38,3 +38,32 @@
 
 -- ALTER TABLE products
 -- DROP COLUMN isAvailable;
+
+-- CREATE TABLE wishlists (
+--    id INT NOT NULL AUTO_INCREMENT,
+--     PRIMARY KEY (id)
+-- )
+
+-- CREATE TABLE wishlistproducts(
+--   id INT NOT NULL AUTO_INCREMENT,   
+--   wishlistId INT,
+--   productId INT,
+--   creatorId VARCHAR(255) NOT NULL,
+
+--   PRIMARY KEY (id),
+
+--   FOREIGN KEY (wishlistId)
+--   REFERENCES wishlists (id)
+--   ON DELETE CASCADE,
+
+--   FOREIGN KEY (productId)
+--   REFERENCES products (id)
+--   ON DELETE CASCADE,
+
+--    FOREIGN KEY (creatorId)
+--         REFERENCES profiles(id)
+--         ON DELETE CASCADE
+-- )
+
+-- ALTER TABLE wishlists
+-- ADD name VARCHAR(255) NOT NULL;

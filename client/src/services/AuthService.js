@@ -5,6 +5,7 @@ import router from '../router'
 import { setBearer } from './AxiosService'
 import { productsService } from './ProductsService'
 import { profileService } from './ProfileService'
+import { wishlistsService } from '../services/WishListsService'
 
 export const AuthService = initialize({
   domain,
@@ -23,6 +24,7 @@ AuthService.on(AuthService.AUTH_EVENTS.AUTHENTICATED, async function() {
   setBearer(AuthService.bearer)
   await profileService.getProfile()
   productsService.getMyProducts()
+  wishlistsService.getWishLists()
   AppState.user = AuthService.user
   // NOTE if there is something you want to do once the user is authenticated, place that here
 })

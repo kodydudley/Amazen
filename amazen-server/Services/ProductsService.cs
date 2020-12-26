@@ -65,5 +65,10 @@ namespace amazen_server.Services
     {
       return _repo.getProductsByProfile(profileId).ToList().FindAll(product => product.CreatorId == userId);
     }
+
+    public IEnumerable<Product> GetWishListsByProfile(string profileId, string userId)
+    {
+      return _repo.getProductsByProfile(profileId).ToList().FindAll(WishList => WishList.CreatorId == userId);
+    }
   }
 }

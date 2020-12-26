@@ -53,5 +53,20 @@ namespace amazen_server.Controllers
       }
 
     }
+
+    [HttpGet("{id}/wishlists")]
+    public async Task<ActionResult<Profile>> GetWishListsByProfile(string id)
+    {
+      try
+      {
+        Profile userInfo = await HttpContext.GetUserInfoAsync<Profile>();
+        return Ok(_mps.GetWishListsByProfile(id, userInfo?.Id));
+      }
+      catch (System.Exception e)
+      {
+        return BadRequest(e.Message);
+      }
+
+    }
   }
 }

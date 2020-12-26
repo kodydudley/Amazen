@@ -14,4 +14,9 @@ namespace amazen_server.Models
     public Profile Creator { get; set; }
 
   }
+
+  public class WishListProductsViewModel : Product
+  {
+    public int WishListProductId { get; set; }
+  }
 }

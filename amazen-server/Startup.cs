@@ -73,6 +73,8 @@ namespace amazen
       services.AddTransient<ProductsRepository>();
       services.AddTransient<WishListsService>();
       services.AddTransient<WishListsRepository>();
+      services.AddTransient<WishListProductsService>();
+      services.AddTransient<WishListProductsRepository>();
     }
 
 
