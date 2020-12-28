@@ -18,15 +18,29 @@ namespace amazen_server.Controllers
       _wlps = wlps;
     }
 
+    // [HttpPost]
+    // // [Authorize]
+    // public async Task<ActionResult<WishListProduct>> Post([FromBody] WishListProduct newWishListProduct)
+    // {
+    //   try
+    //   {
+    //     Profile userInfo = await HttpContext.GetUserInfoAsync<Profile>();
+    //     newWishListProduct.CreatorId = userInfo.Id;
+    //     return Ok(_wlps.Create(newWishListProduct));
+    //   }
+    //   catch (System.Exception e)
+    //   {
+    //     return BadRequest(e.Message);
+    //   }
+    // }
+
     [HttpPost]
-    [Authorize]
-    public async Task<ActionResult<WishListProduct>> Post([FromBody] WishListProduct newWishListProduct)
+    public ActionResult<string> Create([FromBody] WishListProduct newWishListProduct)
     {
       try
       {
-        Profile userInfo = await HttpContext.GetUserInfoAsync<Profile>();
-        newWishListProduct.CreatorId = userInfo.Id;
-        return Ok(_wlps.Create(newWishListProduct));
+        _wlps.Create(newWishListProduct);
+        return Ok("It's been added to your wishlist");
       }
       catch (System.Exception e)
       {
@@ -34,7 +48,7 @@ namespace amazen_server.Controllers
       }
     }
 
-    [Authorize]
+    // [Authorize]
     [HttpDelete("{id}")]
     public async Task<ActionResult<string>> Delete(int id)
     {

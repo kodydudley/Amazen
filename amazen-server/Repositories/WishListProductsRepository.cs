@@ -19,9 +19,9 @@ namespace amazen_server.Repositories
     {
       string sql = @"
         INSERT INTO wishlistproducts
-        (wishlistId, productId, creatorId)
+        (wishlistId, productId)
         VALUES
-        (@wishlistId, @productId, @CreatorId);
+        (@WishlistId, @ProductId);
         SELECT LAST_INSERT_ID();";
       return _db.ExecuteScalar<int>(sql, newWishListProduct);
     }
@@ -29,7 +29,7 @@ namespace amazen_server.Repositories
     internal IEnumerable<Product> GetProductsByWishListId(int wishlistId)
     {
       string sql = @"
-        SELECT b.*,
+        SELECT product.*,
         wlp.id as WishListProductId,
         profile.*
         FROM wishlistproducts wlp

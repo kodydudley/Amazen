@@ -67,3 +67,22 @@
 
 -- ALTER TABLE wishlists
 -- ADD name VARCHAR(255) NOT NULL;
+
+-- ALTER TABLE wishlistproducts
+-- DROP COLUMN creatorId;
+
+-- DROP TABLE wishlistproducts
+
+-- CREATE TABLE wishlistproducts
+-- (
+--   id INT NOT NULL AUTO_INCREMENT,
+--   productId INT,
+--   wishlistId INT,
+--   PRIMARY KEY (id),
+--   FOREIGN KEY (productId) 
+--     REFERENCES products (id) 
+--     ON DELETE CASCADE,
+--   FOREIGN KEY (wishlistId) 
+--     REFERENCES wishlists (id)
+--     ON DELETE CASCADE
+-- );

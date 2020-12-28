@@ -29,10 +29,6 @@ namespace amazen_server.Services
     {
       WishListProduct original = _repo.Get(id);
       if (original == null) { throw new Exception("Bad Id"); }
-      if (original.CreatorId != userId)
-      {
-        throw new Exception("Not the User : Access Denied");
-      }
       if (_repo.Remove(id))
       {
         return "deleted succesfully";
